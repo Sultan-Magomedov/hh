@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  place-items: center;
+  min-width: 1000px;
+  min-height: 100vh;
+  background-color: #f6f6f7 !important;
+}
+a {
+  cursor: pointer;
+  padding: 5px 0;
+}
