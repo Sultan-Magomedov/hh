@@ -1,17 +1,18 @@
 import { Button, Card, Flex, Group, Text } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { useNavigate } from "react-router";
+import type { VacancyType } from "../../types";
+import styles from "./MyCard.module.css";
+
 interface MyCardProps {
-  name: string;
-  area: string;
-  exp: string;
-  company: string;
-  form: string | undefined;
-  from: number | null | undefined;
-  to: number | null | undefined;
-  currency: string | undefined;
-  url: string;
+  vacancy: VacancyType;
+  showButton: boolean;
 }
-export const MyCard = (vacancy: MyCardProps) => {
+export const MyCard = ({ vacancy, showButton }: MyCardProps) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/vacancies/${vacancy.id}`);
+  };
   return (
     <Card padding={24} radius={12} w={659}>
       <Flex justify="space-between" direction="column" gap={16}>
@@ -20,59 +21,79 @@ export const MyCard = (vacancy: MyCardProps) => {
             {vacancy.name}
           </Text>
           <Group gap={16}>
-            {vacancy.from && vacancy.to && (
+            {vacancy.salary?.from && vacancy.salary?.to && (
               <Text>
-                {vacancy.from}-{vacancy.to}
-                {vacancy.currency}
+                {vacancy.salary?.from}-{vacancy.salary?.to}
+                {vacancy.salary?.currency}
               </Text>
             )}
-            {!vacancy.from && vacancy.to && (
+            {!vacancy.salary?.from && vacancy.salary?.to && (
               <Text>
-                до {vacancy.to}
-                {vacancy.currency}
+                до {vacancy.salary?.to}
+                {vacancy.salary?.currency}
               </Text>
             )}
-            {vacancy.from && !vacancy.to && (
+            {vacancy.salary?.from && !vacancy.salary?.to && (
               <Text>
-                от {vacancy.from}
-                {vacancy.currency}
+                от {vacancy.salary?.from}
+                {vacancy.salary?.currency}
               </Text>
             )}
-            <Text>{vacancy.exp}</Text>
+            <Text>{vacancy.experience.name}</Text>
           </Group>
         </Flex>
         <Flex justify="space-between" direction="column" align="start">
           <Text fz={14} mb={5}>
-            {vacancy.company}
+            {vacancy.employer.name}
           </Text>
-          {vacancy.form && (
-            <Text
-              fz={9}
-              mb={3}
-              color="white"
-              bdrs={3}
-              pl={6}
-              pr={6}
-              bg="blue"
-              fw={700}
-            >
-              {vacancy.form}
-            </Text>
+          {vacancy.work_format && (
+            <>
+              {vacancy.work_format.map((format) => (
+                <Text
+                  key={format.name}
+                  fz={9}
+                  mb={3}
+                  color={
+                    format.name === "Гибрид"
+                      ? "White"
+                      : format.name === "Удалённо"
+                      ? "White"
+                      : "#0f0f10fb"
+                  }
+                  bdrs={3}
+                  pl={6}
+                  pr={6}
+                  bg={
+                    format.name === "Гибрид"
+                      ? "#0F0F10"
+                      : format.name === "Удалённо"
+                      ? "#4263EB"
+                      : "#0F0F101A"
+                  }
+                  fw={700}
+                >
+                  {format.name}
+                </Text>
+              ))}
+            </>
           )}
-          <Text>{vacancy.area}</Text>
+          <Text>{vacancy.area.name}</Text>
         </Flex>
         <Flex gap={12} align="start">
-          <Button color="#0F0F10" radius="md">
-            Смотреть вакансию
-          </Button>
-          <Button color="#0F0F10" variant="light" radius="md">
-            <a
-              style={{ color: "black", textDecoration: "none" }}
-              href={vacancy.url}
+          {showButton && (
+            <Button onClick={() => handleClick()} color="#0F0F10" radius="md">
+              Смотреть вакансию
+            </Button>
+          )}
+          <a className={styles.link} href={vacancy.alternate_url}>
+            <Button
+              color="#0F0F10"
+              variant={!showButton ? "" : "light"}
+              radius="md"
             >
-              Откликнуться
-            </a>
-          </Button>
+              {!showButton ? "Откликнуться на hh.ru" : "Откликнуться"}
+            </Button>
+          </a>
         </Flex>
       </Flex>
     </Card>

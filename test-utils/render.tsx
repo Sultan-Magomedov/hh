@@ -1,4 +1,3 @@
-
 import {
   render as testingLibraryRender,
   type RenderOptions,
@@ -6,6 +5,7 @@ import {
 import { MantineProvider } from "@mantine/core";
 // import { theme } from '../src/theme';
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router";
 import { setupStore, type RootState, type AppStore } from "../src/store/store";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "wrapper"> {
@@ -16,7 +16,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "wrapper"> {
 export function renderWithRedux(
   ui: React.ReactElement,
   {
-    preloadedState={},
+    preloadedState = {},
     store = setupStore(preloadedState),
     ...renderOptions
   }: ExtendedRenderOptions = {}
@@ -24,7 +24,9 @@ export function renderWithRedux(
   function Wrapper({ children }: { children: React.ReactNode }) {
     return (
       <MantineProvider env="test">
-        <Provider store={store}>{children}</Provider>
+        <BrowserRouter>
+          <Provider store={store}>{children}</Provider>
+        </BrowserRouter>
       </MantineProvider>
     );
   }

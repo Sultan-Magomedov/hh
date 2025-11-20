@@ -1,7 +1,7 @@
 import { Pagination } from "@mantine/core";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
-import { fetchVacancies } from "../../store/reducers/searchSlice";
 import { setPage } from "../../store/reducers/filterSlice";
+import styles from "./MyPagination.module.css";
 
 export const MyPagination = () => {
   const dispatch = useTypedDispatch();
@@ -12,17 +12,20 @@ export const MyPagination = () => {
     const newPage = page - 1;
     if (newPage !== page) {
       dispatch(setPage(newPage));
-      dispatch(fetchVacancies());
     }
   };
+
   return (
-    <Pagination
-      w={659}
-      style={{ justifyItems: "center" }}
-      total={pages}
-      value={page + 1}
-      onChange={handlePageChange}
-      withEdges
-    />
+    <>
+      {pages > 1 && (
+        <Pagination
+          className={styles.pagination}
+          total={pages}
+          value={page + 1}
+          onChange={handlePageChange}
+          withEdges
+        />
+      )}
+    </>
   );
 };

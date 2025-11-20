@@ -5,6 +5,7 @@ export interface FilterState {
   skills: string[];
   idCity: string;
   page: number;
+  find: boolean;
 }
 
 export const initialState: FilterState = {
@@ -12,6 +13,7 @@ export const initialState: FilterState = {
   skills: ["TypeScript", "React", "Redux"],
   idCity: "",
   page: 0,
+  find: false,
 };
 
 export const filterSlice = createSlice({
@@ -20,6 +22,13 @@ export const filterSlice = createSlice({
   reducers: {
     setName: (state, action) => {
       state.name = action.payload;
+    },
+    setFind: (state, action) => {
+      state.find = action.payload;
+      state.page = 0;
+    },
+    setSkills(state, action) {
+      state.skills = action.payload;
       state.page = 0;
     },
     addSkill: (state, action) => {
@@ -42,7 +51,14 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { setName, addSkill, removeSkill, setCityId, setPage } =
-  filterSlice.actions;
+export const {
+  setName,
+  addSkill,
+  removeSkill,
+  setCityId,
+  setPage,
+  setFind,
+  setSkills,
+} = filterSlice.actions;
 
 export default filterSlice.reducer;

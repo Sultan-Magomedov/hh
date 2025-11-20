@@ -24,7 +24,7 @@ describe("SkillSet component", () => {
   });
   it("when you press the Enter button, the skill should be added", async () => {
     const store = setupStore({
-      filterReducer: { name: "", skills: [], idCity: "", page: 0 },
+      filterReducer: { name: "", skills: [], idCity: "", page: 0, find: false },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
 
@@ -37,7 +37,7 @@ describe("SkillSet component", () => {
     expect(input).toHaveValue("");
 
     expect(screen.getByText("HTML")).toBeInTheDocument();
-    expect(mockDispatch).toHaveBeenCalledTimes(2);
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
     expect(mockDispatch).toHaveBeenCalledWith(addSkill("HTML"));
     expect(store.getState().filterReducer.skills).toContain("HTML");
   });
@@ -48,6 +48,7 @@ describe("SkillSet component", () => {
         skills: ["TypeScript", "React", "Redux"],
         idCity: "",
         page: 0,
+        find: false,
       },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
@@ -63,7 +64,7 @@ describe("SkillSet component", () => {
     await userEvent.click(button);
 
     expect(screen.queryByText("React")).not.toBeInTheDocument();
-    expect(mockDispatch).toHaveBeenCalledTimes(2);
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
     expect(mockDispatch).toHaveBeenCalledWith(removeSkill("React"));
     expect(store.getState().filterReducer.skills.length).toBe(2);
   });

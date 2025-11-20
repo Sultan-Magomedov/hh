@@ -3,21 +3,24 @@ import { screen, renderWithRedux } from "../../../test-utils";
 import "@testing-library/jest-dom";
 import { MyCard } from "./MyCard";
 
+const vacancy = {
+  name: "Frontend",
+  area: { name: "Москва" },
+  experience: { name: "1-3 года" },
+  employer: { name: "FIX" },
+  work_format: [{ name: "Удалённо" }],
+  salary: { from: 80000, to: 100000, currency: "RUR" },
+  alternate_url: "https://test.ru",
+  id: "1",
+  snippet: {
+    requirement: "test text",
+    responsibility: "test text",
+  },
+};
+
 describe("Input component", () => {
   it("the CardProps should be displayed", () => {
-    renderWithRedux(
-      <MyCard
-        name="Frontend"
-        area="Москва"
-        exp="1-3 года"
-        company="FIX"
-        form="Удалённо"
-        from={80000}
-        to={100000}
-        currency="RUR"
-        url="https://test.ru"
-      />
-    );
+    renderWithRedux(<MyCard vacancy={vacancy} showButton />);
 
     expect(screen.getByText(/Frontend/i)).toBeInTheDocument();
     expect(screen.getByText(/Москва/i)).toBeInTheDocument();
@@ -27,19 +30,7 @@ describe("Input component", () => {
     expect(screen.getByText(/80000-100000RUR/i)).toBeInTheDocument();
   });
   it("the buttons should be displayed", () => {
-    renderWithRedux(
-      <MyCard
-        name="Frontend"
-        area="Москва"
-        exp="1-3 года"
-        company="FIX"
-        form="Удалённо"
-        from={80000}
-        to={100000}
-        currency="RUR"
-        url="https://test.ru"
-      />
-    );
+    renderWithRedux(<MyCard vacancy={vacancy} showButton />);
     expect(screen.getByText(/Откликнуться/i)).toBeInTheDocument();
     expect(screen.getByText(/Смотреть вакансию/i)).toBeInTheDocument();
   });

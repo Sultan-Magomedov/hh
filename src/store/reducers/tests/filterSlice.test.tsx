@@ -4,8 +4,10 @@ import filterReducer, {
   initialState,
   removeSkill,
   setCityId,
+  setFind,
   setName,
   setPage,
+  setSkills,
 } from "../filterSlice";
 
 describe("initial state", () => {
@@ -59,5 +61,21 @@ describe("setPage", () => {
     const state = filterReducer(initialState, setPage(1));
     expect(initialState.page).toBe(0);
     expect(state.page).toBe(1);
+  });
+});
+
+describe("setFind", () => {
+  it("the find should be changed", () => {
+    const state = filterReducer(initialState, setFind(true));
+    expect(initialState.find).toBe(false);
+    expect(state.find).toBe(true);
+  });
+});
+
+describe("setSkills", () => {
+  it("the skills should be changed", () => {
+    const state = filterReducer(initialState, setSkills(["React", "Js"]));
+    expect(initialState.skills.length).toBe(3);
+    expect(state.skills.length).toBe(2);
   });
 });

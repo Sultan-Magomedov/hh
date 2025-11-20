@@ -18,7 +18,7 @@ describe("SelectCity component", () => {
   });
   it("IdCity should be added when selecting a city", async () => {
     const store = setupStore({
-      filterReducer: { name: "", skills: [], idCity: "", page: 0 },
+      filterReducer: { name: "", skills: [], idCity: "", page: 0, find: false },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
 
@@ -28,7 +28,7 @@ describe("SelectCity component", () => {
     await userEvent.click(city);
 
     expect(select).toHaveValue("Москва");
-    expect(mockDispatch).toHaveBeenCalledTimes(2);
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
     expect(mockDispatch).toHaveBeenCalledWith(setCityId("1"));
     expect(store.getState().filterReducer.idCity).toContain("1");
   });

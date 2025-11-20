@@ -14,4 +14,8 @@ export interface VacancyType {
     to: number | null;
   } | null;
   alternate_url: string;
+  snippet: {
+    requirement: string;
+    responsibility: string;
+  };
 }

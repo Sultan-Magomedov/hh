@@ -11,7 +11,6 @@ import "@mantine/core/styles.css";
 import styles from "./SkillSet.module.css";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { addSkill, removeSkill } from "../../store/reducers/filterSlice";
-import { fetchVacancies } from "../../store/reducers/searchSlice";
 
 export const SkillSet = () => {
   const skills = useTypedSelector((state) => state.filterReducer.skills);
@@ -21,14 +20,12 @@ export const SkillSet = () => {
   const handleAddSkill = () => {
     if (newSkill.trim()) {
       dispatch(addSkill(newSkill.trim()));
-      dispatch(fetchVacancies());
       setNewSkill("");
     }
   };
 
   const handleRemoveSkill = (skillToRemove: string) => {
     dispatch(removeSkill(skillToRemove));
-    dispatch(fetchVacancies());
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -62,7 +59,7 @@ export const SkillSet = () => {
           </Button>
         </Flex>
       </InputWrapper>
-      <Box mt="sm" style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+      <Box mt="sm" className={styles.box}>
         {skills.map((skill: string) => (
           <Pill
             key={skill}

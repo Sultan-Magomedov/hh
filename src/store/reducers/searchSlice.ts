@@ -27,16 +27,15 @@ export const fetchVacancies = createAsyncThunk(
     try {
       const state = getState() as RootState;
       const { name, idCity, page, skills } = state.filterReducer;
-      const searchText = `${name}${skills.join("")}`;
+      const searchText = `${name}/${skills.join(",")}`;
       const area = idCity === "" ? null : `area=${idCity}`;
       const response = await ky(
-        `https://api.hh.ru/vacancies?industry=7&professional_role=96&per_page=10&page=${page}&&text=${searchText}&${area}`
+        `https://api.hh.ru/vacancies?industry=7&professional_role=96&per_page=10&search_field=description&page=${page}&text=${searchText}&${area}`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data: ResponseState = await response.json();
-      console.log(data.items);
       return { items: data.items, pages: data.pages };
     } catch (error) {
       if (error instanceof Error) {

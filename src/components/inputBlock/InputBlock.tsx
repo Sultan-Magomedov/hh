@@ -4,7 +4,7 @@ import { Input } from "../Input/Input";
 
 export const InputBlock = () => {
   return (
-    <Flex justify="space-between" mt={52} mb={24}  >
+    <Flex justify="space-between" mt={52} mb={24} align="center">
       <Flex w={366} h={66} direction="column" align="flex-start">
         <Text fw={700} fz="h2">
           Список вакансий
