@@ -1,78 +1,28 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { MyCard } from "../../components/MyCard/MyCard";
 import { fetchVacancies } from "../../store/reducers/searchSlice";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { Box, Text } from "@mantine/core";
-import {
-  setCityId,
-  setName,
-  setPage,
-  setSkills,
-} from "../../store/reducers/filterSlice";
-import { useSearchParams } from "react-router";
 import styles from "./VacanciesList.module.css";
+import { useLocation, useSearchParams } from "react-router";
+import { addSkill, setCityId, setName } from "../../store/reducers/filterSlice";
 
 export const VacanciesList = () => {
   const { vacancies, error } = useTypedSelector((state) => state.searchReducer);
   const dispatch = useTypedDispatch();
-  const { name, idCity, page, find, skills } = useTypedSelector(
-    (state) => state.filterReducer
-  );
-  const skillsA = skills.join(",");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const filtersRef = useRef({ name, idCity, page, skillsA });
-  const searchText = `${name}/${skills.join(",")}`;
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
 
   useEffect(() => {
-    const urlText = searchParams.get("text") || "";
-    const urlArea = searchParams.get("area") || "";
-    const urlPageParam = searchParams.get("page");
-    const parsedPage = parseInt(urlPageParam || "0", 10);
-    const urlPage = isNaN(parsedPage) ? 0 : parsedPage;
-
-    if (urlText !== searchText) {
-      const parts = urlText.split("/");
-      const searchName = parts[0].trim();
-      dispatch(setName(searchName));
-
-      if (parts.length > 1) {
-        const searchSkills = parts[1]
-          .split(",")
-          .map((skill) => skill.trim())
-          .filter((skill) => skill.length > 0);
-
-        dispatch(setSkills(searchSkills));
-      }
-    }
-    if (urlArea !== idCity) {
-      dispatch(setCityId(urlArea));
-    }
-    if (urlPage !== page) {
-      dispatch(setPage(urlPage));
-    }
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, searchParams]);
-
-  useEffect(() => {
-    if (
-      filtersRef.current.name !== name ||
-      filtersRef.current.idCity !== idCity ||
-      filtersRef.current.page !== page ||
-      filtersRef.current.skillsA !== skills.join(",")
-    ) {
-      setSearchParams({
-        text: searchText,
-        area: idCity,
-        page: page.toString(),
-      });
-      filtersRef.current = { name, idCity, page, skillsA };
-
-      return;
-    }
-
+    if (location.pathname !== "/FE-project-routing/vacancies") return;
+    const textUrl = searchParams.get("text") || "";
+    const cityUrl = searchParams.get("area") || "";
+    const skillsUrl = searchParams.get("skills")?.split(",") || [];
+    dispatch(setName(textUrl));
+    dispatch(setCityId(cityUrl));
+    skillsUrl.forEach((skill) => dispatch(addSkill(skill)));
     dispatch(fetchVacancies());
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, setSearchParams, idCity, page, find, skills]);
+  }, [dispatch, searchParams, location.pathname]);
   return (
     <>
       {error && (

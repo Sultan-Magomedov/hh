@@ -11,21 +11,49 @@ import "@mantine/core/styles.css";
 import styles from "./SkillSet.module.css";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { addSkill, removeSkill } from "../../store/reducers/filterSlice";
+import { useSearchParams } from "react-router";
 
 export const SkillSet = () => {
-  const skills = useTypedSelector((state) => state.filterReducer.skills);
+  const { skills, name, idCity } = useTypedSelector(
+    (state) => state.filterReducer
+  );
   const dispatch = useTypedDispatch();
   const [newSkill, setNewSkill] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleAddSkill = () => {
     if (newSkill.trim()) {
       dispatch(addSkill(newSkill.trim()));
       setNewSkill("");
+      searchParams.set("skills", [...skills, newSkill.trim()].join(","));
+      if (name) {
+        searchParams.set("text", name);
+      } else {
+        searchParams.delete("text");
+      }
+
+      searchParams.set("area", idCity);
+      setSearchParams(searchParams);
+      setSearchParams(searchParams);
     }
   };
 
   const handleRemoveSkill = (skillToRemove: string) => {
     dispatch(removeSkill(skillToRemove));
+    const newSkills = skills.filter((skill) => skill !== skillToRemove);
+    if (newSkills.length > 0) {
+      searchParams.set("skills", newSkills.join(","));
+    } else {
+      searchParams.delete("skills");
+    }
+    if (name) {
+      searchParams.set("text", name);
+    } else {
+      searchParams.delete("text");
+    }
+
+    searchParams.set("area", idCity);
+    setSearchParams(searchParams);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
