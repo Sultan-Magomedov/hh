@@ -9,7 +9,7 @@ import { Profile } from "../pages/Profile/Profile";
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/hh/" element={<MainLayout />}>
+      <Route path="/" element={<MainLayout />}>
         <Route index element={<Navigate to="vacancies" replace />} />
         <Route path="vacancies" element={<Vacancies />}>
           <Route path="moscow" element={<TabsCity />} />
