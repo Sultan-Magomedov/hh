@@ -1,8 +1,8 @@
 import { Box, Card, Text } from "@mantine/core";
-import { MyCard } from "../components/MyCard/MyCard";
+import { MyCard } from "../../components/MyCard/MyCard";
 import { Navigate, useParams } from "react-router";
-import { useTypedSelector } from "../hooks/redux";
-import type { VacancyType } from "../types";
+import { useTypedSelector } from "../../hooks/redux";
+import type { VacancyType } from "../../types";
 
 export const Vacancy = () => {
   const { id } = useParams();

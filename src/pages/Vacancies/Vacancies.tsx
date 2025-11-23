@@ -1,9 +1,9 @@
 import { Flex } from "@mantine/core";
-import { InputBlock } from "../components/inputBlock/InputBlock";
-import { SkillSet } from "../components/SkillSet/SkillSet";
-import { TabsCity } from "../components/TabsCity/TabsCity";
-import { VacanciesList } from "../Modules/VacanciesList/VacanciesList";
-import { MyPagination } from "../components/MyPagination/MyPagination";
+import { InputBlock } from "../../components/inputBlock/InputBlock";
+import { SkillSet } from "../../components/SkillSet/SkillSet";
+import { TabsCity } from "../../components/TabsCity/TabsCity";
+import { VacanciesList } from "../../Modules/VacanciesList/VacanciesList";
+import { MyPagination } from "../../components/MyPagination/MyPagination";
 
 export const Vacancies = () => {
   return (

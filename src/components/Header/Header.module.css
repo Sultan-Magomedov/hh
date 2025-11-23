@@ -10,13 +10,12 @@
   height: 60px;
   box-sizing: border-box;
   box-shadow: 0 2px 20px rgba(28, 29, 31, 0.05);
-  
 }
 .logo {
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 10px
+  gap: 10px;
 }
 .menu {
   display: flex;
@@ -28,5 +27,8 @@
 .profile {
   display: flex;
   align-items: center;
-  gap: 4px
+  gap: 4px;
+}
+.link {
+  color: #0f0f1080;
 }

@@ -5,7 +5,3 @@ body {
   min-height: 100vh;
   background-color: #f6f6f7 !important;
 }
-a {
-  cursor: pointer;
-  padding: 5px 0;
-}

@@ -1,0 +1,21 @@
+.base {
+  cursor: pointer;
+  padding: 5px 0;
+  text-decoration: none;
+  position: relative;
+}
+.active {
+  color: #000000;
+}
+.active::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #4263eb;
+  border-radius: 50%;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
