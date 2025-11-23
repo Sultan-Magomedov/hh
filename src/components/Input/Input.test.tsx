@@ -15,7 +15,7 @@ describe("Input component", () => {
   });
   it("when entering the input, the name field should change", async () => {
     const store = setupStore({
-      filterReducer: { name: "", skills: [], idCity: "", page: 0, find: false },
+      filterReducer: { name: "", skills: [], idCity: "", page: 0 },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
 
@@ -30,7 +30,7 @@ describe("Input component", () => {
     await userEvent.type(input, "test");
     await userEvent.click(button);
     expect(input).toHaveValue("test");
-    expect(mockDispatch).toHaveBeenCalledTimes(6);
+    expect(mockDispatch).toHaveBeenCalledTimes(5);
     expect(mockDispatch).toHaveBeenCalledWith(setName("test"));
   });
 });

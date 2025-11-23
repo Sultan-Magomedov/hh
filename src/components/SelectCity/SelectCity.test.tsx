@@ -18,7 +18,7 @@ describe("SelectCity component", () => {
   });
   it("IdCity should be added when selecting a city", async () => {
     const store = setupStore({
-      filterReducer: { name: "", skills: [], idCity: "", page: 0, find: false },
+      filterReducer: { name: "", skills: [], idCity: "", page: 0 },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
 

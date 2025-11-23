@@ -24,7 +24,7 @@ describe("SkillSet component", () => {
   });
   it("when you press the Enter button, the skill should be added", async () => {
     const store = setupStore({
-      filterReducer: { name: "", skills: [], idCity: "", page: 0, find: false },
+      filterReducer: { name: "", skills: [], idCity: "", page: 0 },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
 
@@ -48,7 +48,6 @@ describe("SkillSet component", () => {
         skills: ["TypeScript", "React", "Redux"],
         idCity: "",
         page: 0,
-        find: false,
       },
     });
     const mockDispatch = vi.spyOn(store, "dispatch");
