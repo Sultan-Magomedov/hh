@@ -25,6 +25,18 @@
   gap: 24px;
   font-size: 14px;
 }
+.menuLink {
+  color: #0f0f10;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.menuLink:hover {
+  color: #4263eb;
+}
+.activeLink {
+  color: #4263eb;
+  font-weight: 600;
+}
 .profile {
   display: flex;
   align-items: center;

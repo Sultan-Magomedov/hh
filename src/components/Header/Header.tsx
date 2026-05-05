@@ -3,10 +3,9 @@ import "@mantine/core/styles.css";
 import Logo from "../../assets/icons/hh.svg?react";
 import Profile from "../../assets/icons/user-circle.svg?react";
 import styles from "./Header.module.css";
-import { useNavigate } from "react-router";
+import { NavLink } from "react-router";
 
 export const Header = () => {
-  const navigate = useNavigate();
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
@@ -16,11 +15,23 @@ export const Header = () => {
         </Text>
       </div>
       <nav className={styles.menu}>
-        <a onClick={() => navigate("/vacancies")}>Вакансии FE</a>
-        <a className={styles.profile}>
+        <NavLink
+          to="/vacancies"
+          className={({ isActive }) =>
+            `${styles.menuLink} ${isActive ? styles.activeLink : ""}`
+          }
+        >
+          Вакансии FE
+        </NavLink>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `${styles.menuLink} ${styles.profile} ${isActive ? styles.activeLink : ""}`
+          }
+        >
           <Profile />
-          <Text m={0}>Обо мне</Text>
-        </a>
+          <Text m={0}>Мой профиль</Text>
+        </NavLink>
       </nav>
     </div>
   );

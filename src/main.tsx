@@ -5,17 +5,17 @@ import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { setupStore } from "./store/store.ts";
 import { MantineProvider } from "@mantine/core";
-import { BrowserRouter } from "react-router";
+import { HashRouter } from "react-router";
 
 const store = setupStore();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <MantineProvider>
         <Provider store={store}>
           <App />
         </Provider>
       </MantineProvider>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );

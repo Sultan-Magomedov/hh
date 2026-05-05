@@ -1,17 +1,34 @@
-import { Route, Routes } from "react-router";
-import { Vacancies } from "../pages/Vacancies";
-import { Vacancy } from "../pages/Vacancy";
+import { Navigate, Route, Routes } from "react-router"
+import { Vacancies } from "../pages/Vacancies.tsx"
+import { Vacancy } from "../pages/Vacancy.tsx"
+import { About } from "../pages/About.tsx"
+import { NotFound } from "../pages/NotFound.tsx"
+import { Auth } from "../pages/Auth.tsx"
 
 export const AppRoutes = () => {
-  const navigationRoutes = [
-    { path: "/vacancies", element: <Vacancies /> },
-    { path: "/vacancies/:id", element: <Vacancy /> },
-  ];
-  return (
-    <Routes>
-      {navigationRoutes.map((route) => (
-        <Route key={route.path} path={route.path} element={route.element} />
-      ))}
-    </Routes>
-  );
-};
+	const navigationRoutes = [
+		{ path: "/", element: <Auth /> },
+		{ path: "/vacancies", element: <Vacancies /> },
+		{
+			path: "/vacancies/:id",
+			element: <Vacancy />,
+		},
+		{ path: "/auth", element: <Auth /> },
+		{
+			path: "/profile",
+			element: <About />,
+		},
+		{ path: "/about", element: <Navigate to="/profile" replace /> },
+		{
+			path: "*",
+			element: <NotFound />,
+		},
+	]
+	return (
+		<Routes>
+			{navigationRoutes.map((route) => (
+				<Route key={route.path} path={route.path} element={route.element} />
+			))}
+		</Routes>
+	)
+}

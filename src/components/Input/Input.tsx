@@ -1,54 +1,40 @@
-import { Button, TextInput } from "@mantine/core";
-import "@mantine/core/styles.css";
-import Search from "../../assets/icons/search.svg?react";
-import styles from "./Input.module.css";
-import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
-import { setFind, setName } from "../../store/reducers/filterSlice";
-import { fetchVacancies } from "../../store/reducers/searchSlice";
+import { Loader, TextInput } from "@mantine/core"
+import "@mantine/core/styles.css"
+import Search from "../../assets/icons/search.svg?react"
+
+import { useTypedDispatch, useTypedSelector } from "../../hooks/redux"
+import { setName } from "../../store/reducers/filterSlice"
+import React, { useEffect, useState, useTransition } from "react"
 
 export const Input = () => {
-  const { name, find } = useTypedSelector((state) => state.filterReducer);
-  const dispatch = useTypedDispatch();
+	const { name } = useTypedSelector((state) => state.filterReducer)
+	const dispatch = useTypedDispatch()
+	const [value, setValue] = useState(name)
+	const [isPending, startTransition] = useTransition()
 
-  const handleFindButtonClick = () => {
-    dispatch(fetchVacancies());
-    dispatch(setFind(!find));
-  };
+	useEffect(() => {
+		setValue(name)
+	}, [name])
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      dispatch(fetchVacancies());
-      dispatch(setFind(!find));
-    }
-  };
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const newValue = e.currentTarget.value
+		setValue(newValue)
+		startTransition(() => {
+			dispatch(setName(newValue))
+		})
+	}
 
-  const handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setName(e.target.value));
-  };
-
-  return (
-    <label className={styles.group}>
-      <TextInput
-        w={403}
-        fw={400}
-        leftSection={<Search />}
-        value={name}
-        onChange={handleFilter}
-        onKeyDown={handleKeyDown}
-        size="md"
-        radius="md"
-        placeholder="Должность или название компании"
-      />
-      <Button
-        fw={400}
-        w={93}
-        h={42}
-        type="button"
-        onClick={handleFindButtonClick}
-      >
-        Найти
-      </Button>
-    </label>
-  );
-};
+	return (
+		<TextInput
+			w={403}
+			fw={400}
+			leftSection={<Search />}
+			value={value}
+			onChange={handleChange}
+			size="md"
+			radius="md"
+			placeholder="Должность или название компании"
+			rightSection={isPending ? <Loader size="xs" /> : null}
+		/>
+	)
+}

@@ -1,0 +1,578 @@
+{
+  "jobs": [
+    {
+      "id": "101",
+      "name": "Frontend Developer (React)",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "Mock Studio"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 180000,
+        "to": 240000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, Redux Toolkit, REST API",
+        "responsibility": "Разработка UI и поддержка клиентской архитектуры"
+      }
+    },
+    {
+      "id": "102",
+      "name": "Middle Frontend Engineer",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "3-6 лет"
+      },
+      "employer": {
+        "name": "Product Mock"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 220000,
+        "to": null
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "TypeScript, React, Zustand, тестирование",
+        "responsibility": "Развитие продуктовых фич и code review"
+      }
+    },
+    {
+      "id": "103",
+      "name": "Junior Frontend Developer",
+      "area": {
+        "name": "Казань"
+      },
+      "experience": {
+        "name": "Нет опыта"
+      },
+      "employer": {
+        "name": "Start Mock"
+      },
+      "work_format": [
+        {
+          "name": "Офис"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": null,
+        "to": 110000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "База JavaScript, HTML, CSS, желание учиться",
+        "responsibility": "Верстка и поддержка внутренних интерфейсов"
+      }
+    },
+    {
+      "id": "104",
+      "name": "Frontend Engineer (Vue/React)",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "Digital Orbit"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 170000,
+        "to": 220000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "Vue, React, TypeScript, Vite",
+        "responsibility": "Разработка личного кабинета и поддержка UI-кита"
+      }
+    },
+    {
+      "id": "105",
+      "name": "Senior Frontend Developer",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "3-6 лет"
+      },
+      "employer": {
+        "name": "North Product"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 260000,
+        "to": 340000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, Next.js, архитектура SPA, performance",
+        "responsibility": "Проектирование фронтенд-архитектуры и менторинг команды"
+      }
+    },
+    {
+      "id": "106",
+      "name": "React Developer",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "Blue Pixel"
+      },
+      "work_format": [
+        {
+          "name": "Офис"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 150000,
+        "to": 210000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, Redux Toolkit, REST, Git",
+        "responsibility": "Реализация интерфейсов для CRM системы"
+      }
+    },
+    {
+      "id": "107",
+      "name": "Frontend Team Lead",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "Более 6 лет"
+      },
+      "employer": {
+        "name": "Leadware"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 320000,
+        "to": 420000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, leadership, CI/CD",
+        "responsibility": "Управление командой frontend и техническое планирование"
+      }
+    },
+    {
+      "id": "108",
+      "name": "Junior React Developer",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "Нет опыта"
+      },
+      "employer": {
+        "name": "Start IT"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": null,
+        "to": 90000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "JavaScript, React, HTML/CSS",
+        "responsibility": "Верстка экранов и исправление UI багов"
+      }
+    },
+    {
+      "id": "109",
+      "name": "Frontend Developer (TypeScript)",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "TS Labs"
+      },
+      "work_format": [
+        {
+          "name": "Офис"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 180000,
+        "to": 230000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "TypeScript, React, GraphQL",
+        "responsibility": "Разработка новых модулей и интеграция с API"
+      }
+    },
+    {
+      "id": "110",
+      "name": "Middle+ Frontend Engineer",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "3-6 лет"
+      },
+      "employer": {
+        "name": "Core Platform"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 240000,
+        "to": 300000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, unit tests, accessibility",
+        "responsibility": "Поддержка дизайн-системы и внедрение best practices"
+      }
+    },
+    {
+      "id": "111",
+      "name": "Frontend Developer (E-commerce)",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "Shopline"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 190000,
+        "to": 250000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, Zustand, SSR",
+        "responsibility": "Разработка витрины и оптимизация пользовательских сценариев"
+      }
+    },
+    {
+      "id": "112",
+      "name": "Frontend UI Engineer",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "Design Flow"
+      },
+      "work_format": [
+        {
+          "name": "Офис"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 160000,
+        "to": 210000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, CSS Modules, Figma",
+        "responsibility": "Пиксель-перфект реализация дизайна и развитие UI компонентов"
+      }
+    },
+    {
+      "id": "113",
+      "name": "React Native / Web Developer",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "Mobile Web"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 200000,
+        "to": 260000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, React Native, TypeScript",
+        "responsibility": "Поддержка web и mobile интерфейсов"
+      }
+    },
+    {
+      "id": "114",
+      "name": "Frontend Engineer (FinTech)",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "3-6 лет"
+      },
+      "employer": {
+        "name": "Fin Mock"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 270000,
+        "to": 350000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "TypeScript, React, charts, WebSocket",
+        "responsibility": "Разработка финансовых дашбордов в реальном времени"
+      }
+    },
+    {
+      "id": "115",
+      "name": "Frontend Developer (B2B)",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "B2B Mock"
+      },
+      "work_format": [
+        {
+          "name": "Офис"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 170000,
+        "to": 230000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, Redux, integration testing",
+        "responsibility": "Разработка кабинета для корпоративных клиентов"
+      }
+    },
+    {
+      "id": "116",
+      "name": "Middle Frontend Developer (React)",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "City Apps"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 190000,
+        "to": 240000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, Mantine",
+        "responsibility": "Развитие фронтенда административной панели"
+      }
+    },
+    {
+      "id": "117",
+      "name": "Frontend Intern",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "Нет опыта"
+      },
+      "employer": {
+        "name": "Intern Hub"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": null,
+        "to": 70000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "HTML, CSS, JavaScript",
+        "responsibility": "Помощь в разработке и тестировании интерфейсов"
+      }
+    },
+    {
+      "id": "118",
+      "name": "Frontend Engineer (Platform)",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "3-6 лет"
+      },
+      "employer": {
+        "name": "Platform Team"
+      },
+      "work_format": [
+        {
+          "name": "Офис"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 250000,
+        "to": 320000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, microfrontends",
+        "responsibility": "Развитие платформенных решений и общих библиотек"
+      }
+    },
+    {
+      "id": "119",
+      "name": "Frontend Developer (EdTech)",
+      "area": {
+        "name": "Санкт-Петербург"
+      },
+      "experience": {
+        "name": "1-3 года"
+      },
+      "employer": {
+        "name": "LearnUp"
+      },
+      "work_format": [
+        {
+          "name": "Гибрид"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 180000,
+        "to": 240000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, animation",
+        "responsibility": "Разработка интерактивных учебных интерфейсов"
+      }
+    },
+    {
+      "id": "120",
+      "name": "Senior Frontend Engineer (React)",
+      "area": {
+        "name": "Москва"
+      },
+      "experience": {
+        "name": "Более 6 лет"
+      },
+      "employer": {
+        "name": "Scale One"
+      },
+      "work_format": [
+        {
+          "name": "Удалённо"
+        }
+      ],
+      "salary": {
+        "currency": "RUR",
+        "from": 300000,
+        "to": 430000
+      },
+      "alternate_url": "https://hh.ru/",
+      "snippet": {
+        "requirement": "React, TypeScript, architecture, mentoring",
+        "responsibility": "Техническое лидерство и развитие frontend направления"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John",
+      "email": "john@test.com",
+      "password": "123456"
+    },
+    {
+      "email": "test@test.ru",
+      "password": "$2a$10$tWzow5t9PTxOpiCYYlIj0Ohc9Kc1gCEIyW1pB6s7bE8J5t2vpMbw2",
+      "name": "Test",
+      "id": "H3oAKdw"
+    }
+  ]
+}
