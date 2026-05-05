@@ -1,31 +1,30 @@
-import { Pagination } from "@mantine/core";
-import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
-import { setPage } from "../../store/reducers/filterSlice";
-import styles from "./MyPagination.module.css";
+import { Pagination } from "@mantine/core"
+import { useTypedDispatch, useTypedSelector } from "../../hooks/redux"
+import { setPage } from "../../store/reducers/filterSlice"
+import styles from "./MyPagination.module.css"
+import { useGetJobsQuery } from "../../store/api/jobsApi"
 
 export const MyPagination = () => {
-  const dispatch = useTypedDispatch();
-  const { pages } = useTypedSelector((state) => state.searchReducer);
-  const { page } = useTypedSelector((state) => state.filterReducer);
+	const dispatch = useTypedDispatch()
+	const filters = useTypedSelector((state) => state.filterReducer)
+	const { page } = filters
+	const { data } = useGetJobsQuery(filters)
+	const totalCount = data?.total || 0
+	const totalPages = Math.ceil(totalCount / 10)
 
-  const handlePageChange = (page: number) => {
-    const newPage = page - 1;
-    if (newPage !== page) {
-      dispatch(setPage(newPage));
-    }
-  };
+	const handlePageChange = (newPage: number) => {
+		dispatch(setPage(newPage - 1))
+	}
 
-  return (
-    <>
-      {pages > 1 && (
-        <Pagination
-          className={styles.pagination}
-          total={pages}
-          value={page + 1}
-          onChange={handlePageChange}
-          withEdges
-        />
-      )}
-    </>
-  );
-};
+	if (totalPages <= 1) return null
+
+	return (
+		<Pagination
+			className={styles.pagination}
+			total={totalPages}
+			value={page + 1}
+			onChange={handlePageChange}
+			withEdges
+		/>
+	)
+}
