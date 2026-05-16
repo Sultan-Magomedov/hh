@@ -7,7 +7,9 @@ interface AuthState {
 	isAuth: boolean
 }
 const initialState: AuthState = {
-	user: JSON.parse(localStorage.getItem("user") || "null"),
+	user: localStorage.getItem("user")
+		? JSON.parse(localStorage.getItem("user")!)
+		: null,
 	token: localStorage.getItem("token"),
 	isAuth: !!localStorage.getItem("token"),
 }

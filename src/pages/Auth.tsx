@@ -14,10 +14,14 @@ import { useLoginMutation, useRegisterMutation } from "../store/api/authApi"
 import type { ApiError, AuthFormData } from "../types"
 import { setCredentials } from "../store/reducers/authSlice"
 import { useTypedDispatch } from "../hooks/redux"
+import { useLocation, useNavigate } from "react-router"
 
 export const Auth = () => {
 	const [isRegister, setIsRegister] = useState<boolean>(false)
 	const dispatch = useTypedDispatch()
+	const navigate = useNavigate()
+	const location = useLocation()
+	const from = location.state?.from?.pathname || "/vacancies"
 	const [registerUser, { isLoading: isRegLoading }] = useRegisterMutation()
 	const [loginUser, { isLoading: isLoginLoading }] = useLoginMutation()
 	const {
@@ -33,6 +37,7 @@ export const Auth = () => {
 				? await registerUser(data).unwrap()
 				: await loginUser(data).unwrap()
 			dispatch(setCredentials(res))
+			navigate(from, { replace: true })
 			alert("Успешно!")
 		} catch (err) {
 			const error = err as ApiError

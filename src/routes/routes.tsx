@@ -4,10 +4,11 @@ import { Vacancy } from "../pages/Vacancy.tsx"
 import { About } from "../pages/About.tsx"
 import { NotFound } from "../pages/NotFound.tsx"
 import { Auth } from "../pages/Auth.tsx"
+import { ProtectedRoute } from "../components/ProtectedRoute/ProtectedRoute.tsx"
 
 export const AppRoutes = () => {
 	const navigationRoutes = [
-		{ path: "/", element: <Auth /> },
+		{ path: "/", element: <Vacancies /> },
 		{ path: "/vacancies", element: <Vacancies /> },
 		{
 			path: "/vacancies/:id",
@@ -16,7 +17,11 @@ export const AppRoutes = () => {
 		{ path: "/auth", element: <Auth /> },
 		{
 			path: "/profile",
-			element: <About />,
+			element: (
+				<ProtectedRoute>
+					<About />
+				</ProtectedRoute>
+			),
 		},
 		{ path: "/about", element: <Navigate to="/profile" replace /> },
 		{
