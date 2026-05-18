@@ -1,44 +1,40 @@
 .header {
-  display: flex;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  padding: 15px 20px;
-  height: 60px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 20px rgba(28, 29, 31, 0.05);
-  
+	display: flex;
+	z-index: 9999;
+	width: 100%;
+	background-color: white;
+	padding: 15px 20px;
+	height: 60px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 20px rgba(28, 29, 31, 0.05);
 }
 .logo {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 10px
+	position: absolute;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 .menu {
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  gap: 24px;
-  font-size: 14px;
+	display: flex;
+	margin: 0 auto;
+	align-items: center;
+	gap: 24px;
+	font-size: 14px;
 }
 .menuLink {
-  color: #0f0f10;
-  text-decoration: none;
-  transition: color 0.2s ease;
+	color: #0f0f10;
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
 .menuLink:hover {
-  color: #4263eb;
+	color: #4263eb;
 }
 .activeLink {
-  color: #4263eb;
-  font-weight: 600;
+	color: #4263eb;
+	font-weight: 600;
 }
 .profile {
-  display: flex;
-  align-items: center;
-  gap: 4px
+	display: flex;
+	align-items: center;
+	gap: 4px;
 }

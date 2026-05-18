@@ -32,8 +32,8 @@ export const MyCard = ({ vacancy, showButton }: MyCardProps) => {
 
 	return (
 		<Card padding={24} radius={12} w={659}>
-			<Flex justify="space-between" direction="column" gap={16}>
-				<Flex justify="space-between" direction="column" align="start" gap={2}>
+			<Flex direction="column" gap={16}>
+				<Flex direction="column" align="start" gap={2}>
 					<Text color="blue" fz={20} fw={600}>
 						{vacancy.name}
 					</Text>
@@ -59,7 +59,7 @@ export const MyCard = ({ vacancy, showButton }: MyCardProps) => {
 						<Text>{vacancy.experience.name}</Text>
 					</Group>
 				</Flex>
-				<Flex justify="space-between" direction="column" align="start">
+				<Flex direction="column" align="start">
 					<Text fz={14} mb={5}>
 						{vacancy.employer.name}
 					</Text>
