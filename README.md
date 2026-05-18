@@ -1,33 +1,84 @@
 # 💼 HeadHunter Mini-Clone (SPA)
 
-> Современное Single Page Application (SPA) для поиска работы.
+Современное Single Page Application (SPA) для поиска и просмотра вакансий, реализующее базовый функционал платформы HeadHunter.
 
 ---
 
-## 🔗 Ссылки на проект
+## 🔗 Demo & Links
 
-*   ⚡ Живое демо (Frontend): [Открыть приложение на GitHub Pages](https://sultan-magomedov.github.io/hh/)
-*   🔌 Серверный слой (Mock API): [Разбудить mock-сервер на Render](...)
+⚡ Frontend (GitHub Pages):  
+https://sultan-magomedov.github.io/hh/
 
-> ⏳ ИНФОРМАЦИЯ ДЛЯ ПРОВЕРЯЮЩЕГО:
-> Бэкенд-часть развернута на бесплатном тарифе Render (Cold Start). Если при первом переходе по ссылке фронтенда вакансии не отображаются, пожалуйста, подождите 30–40 секунд, пока сервер выйдет из режима сна, либо кликните по ссылке бэкенда выше для его принудительной активации.
+🔌 Backend API (Render):  
+https://hh-backend-cqgz.onrender.com
 
----
-
-## 🛠 Технологический стек & Архитектурные решения
-
-В ходе разработки были применены современные инструменты фронтенд-экосистемы:
-
-*   Core: React  + TypeScript.
-*   State Management & Data Fetching: Redux Toolkit & RTK Query.
-*   Routing: React Router v6.
-*   Forms & Validation: React Hook Form.
-*   Backend Simulation: JSON Server (REST API).
+⏳ Важно: backend работает на бесплатном тарифе Render и может уходить в sleep mode (Cold Start ~30–40 секунд). Если вакансии не загружаются — подождите или откройте backend ссылку.
 
 ---
 
-## 🚀 Реализованный функционал
+## 🔑 Тестовые данные
 
-*   [x] Авторизация и сессии: Клиентская логика авторизации/регистрации,синхронизация состояния сессии между Redux Storage и localStorage.
-*   [x] Каталог вакансий: Динамический вывод списка, детальная страница каждой вакансии, фильтрация по параметрам.
-*   [x] UX-оптимизация: Обработка состояний загрузки и понятный фидбек пользователю при ошибках сети.
+Для входа в систему:
+
+Email: qwer@test.com  
+Password: 12345678
+
+---
+
+## 🛠 Технологии
+
+Frontend:
+- React + TypeScript
+- Redux Toolkit
+- RTK Query
+- React Router v6
+- React Hook Form
+
+Backend:
+- JSON Server
+- JSON Server Auth (JWT-подобная авторизация)
+- REST API (mock server)
+
+Deploy:
+- GitHub Pages (frontend)
+- Render (backend)
+
+---
+
+## 🚀 Функциональность
+
+- Авторизация и регистрация пользователей
+- Просмотр списка вакансий
+- Детальная страница вакансии
+- Фильтрация вакансий
+- Сохранение сессии (localStorage)
+- Работа с API через RTK Query
+- Обработка loading / error состояний
+
+---
+
+## 🌐 API
+
+Base URL:  
+https://hh-backend-cqgz.onrender.com
+
+Endpoints:
+- GET /jobs — список вакансий
+- GET /jobs/:id — вакансия по ID
+- GET /users — пользователи
+
+---
+
+## 🧱 Архитектура
+
+Frontend (React SPA)
+→ RTK Query
+→ REST API (Render)
+→ json-server-auth
+→ db.json (mock database)
+
+---
+
+## ⏳ Примечание
+
+Backend размещён на бесплатном тарифе Render, поэтому возможна задержка первого ответа (cold start ~30–40 секунд). Это нормальное поведение сервиса.
