@@ -12,7 +12,11 @@ export const AppRoutes = () => {
 		{ path: "/vacancies", element: <Vacancies /> },
 		{
 			path: "/vacancies/:id",
-			element: <Vacancy />,
+			element: (
+				<ProtectedRoute>
+					<Vacancy />,
+				</ProtectedRoute>
+			),
 		},
 		{ path: "/auth", element: <Auth /> },
 		{

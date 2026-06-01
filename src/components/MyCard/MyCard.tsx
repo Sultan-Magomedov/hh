@@ -1,6 +1,6 @@
 import { Button, Card, Flex, Group, Text } from "@mantine/core"
 import "@mantine/core/styles.css"
-import { useNavigate, useLocation } from "react-router"
+import { useNavigate } from "react-router"
 import type { VacancyType } from "../../types"
 import styles from "./MyCard.module.css"
 import { useTypedSelector } from "../../hooks/redux"
@@ -12,12 +12,11 @@ interface MyCardProps {
 }
 export const MyCard = ({ vacancy, showButton }: MyCardProps) => {
 	const navigate = useNavigate()
-	const location = useLocation()
 	const isAuth = useTypedSelector((state) => state.authReducer.isAuth)
 
 	const handleViewClick = () => {
 		if (!isAuth) {
-			navigate("/auth", { state: { from: location } })
+			navigate("/auth", { state: { from: `/vacancies/${vacancy.id}` } })
 			return
 		}
 		navigate(`/vacancies/${vacancy.id}`)
@@ -26,7 +25,9 @@ export const MyCard = ({ vacancy, showButton }: MyCardProps) => {
 	const handleApplyClick = (e: React.MouseEvent) => {
 		if (!isAuth) {
 			e.preventDefault()
-			navigate("/auth", { state: { from: location } })
+			navigate("/auth", {
+				state: { from: vacancy.alternate_url, external: true },
+			})
 		}
 	}
 
