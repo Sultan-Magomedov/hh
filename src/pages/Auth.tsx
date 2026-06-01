@@ -21,7 +21,8 @@ export const Auth = () => {
 	const dispatch = useTypedDispatch()
 	const navigate = useNavigate()
 	const location = useLocation()
-	const from = location.state?.from?.pathname || "/vacancies"
+	const from = location.state?.from || "/vacancies"
+	const external = location.state?.external
 	const [registerUser, { isLoading: isRegLoading }] = useRegisterMutation()
 	const [loginUser, { isLoading: isLoginLoading }] = useLoginMutation()
 	const {
@@ -37,6 +38,12 @@ export const Auth = () => {
 				? await registerUser(data).unwrap()
 				: await loginUser(data).unwrap()
 			dispatch(setCredentials(res))
+
+			if (external) {
+				window.location.href = from
+				return
+			}
+
 			navigate(from, { replace: true })
 			alert("Успешно!")
 		} catch (err) {
