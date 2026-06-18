@@ -15,6 +15,7 @@ import type { ApiError, AuthFormData } from "../types"
 import { setCredentials } from "../store/reducers/authSlice"
 import { useTypedDispatch } from "../hooks/redux"
 import { useLocation, useNavigate } from "react-router"
+import { notifications } from "@mantine/notifications"
 
 export const Auth = () => {
 	const [isRegister, setIsRegister] = useState<boolean>(false)
@@ -45,10 +46,18 @@ export const Auth = () => {
 			}
 
 			navigate(from, { replace: true })
-			alert("Успешно!")
+			notifications.show({
+				title: "Успешный вход",
+				message: "Добро пожаловать!",
+				color: "green",
+			})
 		} catch (err) {
 			const error = err as ApiError
-			alert(error.data || "Ошибка")
+			notifications.show({
+				title: "Ошибка входа",
+				message: `${error.data}`,
+				color: "red",
+			})
 		}
 	}
 
